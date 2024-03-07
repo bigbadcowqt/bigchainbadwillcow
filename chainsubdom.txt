@@ -16,6 +16,18 @@
           "http",
           "tls"
         ],
+ "inbounds": [
+    {
+      "tag": "socks",
+      "port": 10808,
+      "listen": "127.0.0.1",
+      "protocol": "socks",
+      "sniffing": {
+        "enabled": true,
+        "destOverride": [
+          "http",
+          "tls"
+        ],
         "routeOnly": false
       },
       "settings": {
@@ -66,138 +78,7 @@
           }
         ]
       },
-      "streamSettings": {
-        "network": "ws",
-        "security": "tls",
-        "tlsSettings": {
-          "allowInsecure": false,
-          "serverName": "BoBby-BETting-KNIGhTs-DirectEd.tRYcLoUDflaRe.Com",
-          "alpn": [
-            "h2",
-            "http/1.1"
-          ],
-          "fingerprint": "chrome",
-          "show": false
-        },
-        "wsSettings": {
-          "path": "/",
-          "headers": {
-            "Host": "BoBby-BETting-KNIGhTs-DirectEd.tRYcLoUDflaRe.Com"
-          }
-        },
-        "sockopt": {
-          "dialerProxy": "fragment",
-          "tcpKeepAliveIdle": 100,
-          "mark": 255,
-          "tcpNoDelay": true
-        }
-      },
-      "mux": {
-        "enabled": true,
-        "concurrency": 0,
-        "xudpConcurrency": 0,
-        "xudpProxyUDP443": "reject"
-      }
-    },
-    {
-      "tag": "fragment",
-      "protocol": "freedom",
-      "settings": {
-        "domainStrategy": "AsIs",
-        "fragment": {
-          "packets": "tlshello",
-          "length": "10-15",
-          "interval": "2"
-        }
-      },
-      "streamSettings": {
-        "sockopt": {
-          "tcpNoDelay": true,
-          "tcpKeepAliveIdle": 100
-        }
-      }
-    },
-    {
-      "tag": "direct",
-      "protocol": "freedom",
-      "settings": {}
-    },
-    {
-      "tag": "block",
-      "protocol": "blackhole",
-      "settings": {
-        "response": {
-          "type": "http"
-        }
-      }
-    }
-  ],
-  "routing": {
-    "domainStrategy": "AsIs",
-    "rules": [
-      {
-        "type": "field",
-        "inboundTag": [
-          "api"
-        ],
-        "outboundTag": "api",
-        "enabled": true
-      },
-      {
-        "id": "5627785659655799759",
-        "type": "field",
-        "port": "0-65535",
-        "outboundTag": "proxy",
-        "enabled": true
-      }
-    ]
-{
-  "log": {
-    "access": "",
-    "error": "",
-    "loglevel": "warning"
-  },
-  "inbounds": [
-    {
-      "tag": "socks",
-      "port": 10808,
-      "listen": "127.0.0.1",
-      "protocol": "socks",
-      "sniffing": {
-        "enabled": true,
-        "destOverride": [
-          "http",
-          "tls"
-        ],
-        "routeOnly": false
-      },
-      "settings": {
-        "auth": "noauth",
-        "udp": true,
-        "allowTransparent": false
-      }
-    },
-    {
-      "tag": "http",
-      "port": 10809,
-      "listen": "127.0.0.1",
-      "protocol": "http",
-      "sniffing": {
-        "enabled": true,
-        "destOverride": [
-          "http",
-          "tls"
-        ],
-        "routeOnly": false
-      },
-      "settings": {
-        "auth": "noauth",
-        "udp": true,
-        "allowTransparent": false
-      }
-    }
-  ],
-  "outbounds": [
+ "outbounds": [
     {
       "tag": "proxy",
       "protocol": "vless",
@@ -224,6 +105,16 @@
         "security": "tls",
         "tlsSettings": {
           "allowInsecure": false,
+          "serverName": "BoBby-BETting-KNIGhTs-DirectEd.tRYcLoUDflaRe.Com",
+          "alpn": [
+            "h2",
+            "http/1.1"
+          ],
+ "streamSettings": {
+        "network": "ws",
+        "security": "tls",
+        "tlsSettings": {
+          "allowInsecure": false,
           "serverName": "STATES-EllIOTT-indOOr-pRiVaCY.tRYClOUDfLARe.cOm",
           "alpn": [
             "h2",
@@ -233,6 +124,12 @@
           "show": false
         },
         "wsSettings": {
+          "path": "/",
+          "headers": {
+            "Host": "BoBby-BETting-KNIGhTs-DirectEd.tRYcLoUDflaRe.Com"
+          }
+        },
+ "wsSettings": {
           "path": "/",
           "headers": {
             "Host": "STATES-EllIOTT-indOOr-pRiVaCY.tRYClOUDfLARe.cOm"
@@ -247,8 +144,8 @@
       },
       "mux": {
         "enabled": true,
-        "concurrency": 8,
-        "xudpConcurrency": 8,
+        "concurrency": 0,
+        "xudpConcurrency": 0,
         "xudpProxyUDP443": "reject"
       }
     },
